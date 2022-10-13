@@ -4,10 +4,12 @@ function Feed(props){
     }
     return(
 
-        <div className='feed-container'>
+        <div className='post-container'>
 <h1>Place: {props.place_name}</h1>
 <p>Food: {props.food_name}</p>
-<button onClick={handleClick}>Delete Post</button>
+<span className="material-symbols-outlined"
+
+onClick={handleClick}>delete</span>
         </div>
     )
 }

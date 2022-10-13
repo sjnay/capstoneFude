@@ -8,7 +8,7 @@ const defaultForm = {
     food_name: "",
     food_img: "",
     food_review: "",
-    food_rating: 0,
+    food_rating: "",
     created_at: Date.now(),
 
 }
@@ -68,18 +68,19 @@ function handleChange(event){
 console.log(userPost)
 return(
 
-    <div className=''>
+    <div className='profile-feed-container'>
 
-      <form className="create-note">
+      <form className="create-post">
           <input onChange={handleChange} text={postForm.place_name} name="place_name" placeholder="where did you go?" value={postForm.place_name} />
           <input onChange={handleChange} text={postForm.food_name} name="food_name" placeholder="what did you eat?" value={postForm.food_name} />
-          <input onChange={handleChange} text={postForm.food_img} name="food_img" placeholder="image" value={postForm.food_img} />
+          <input onChange={handleChange} type='file'text={postForm.food_img} name="food_img" placeholder="image" value={postForm.food_img} />
           <textarea onChange={handleChange} text={postForm.food_review} name="food_review" placeholder="describe it" value={postForm.food_review} />
-          <input onChange={handleChange} text={postForm.food_rating} name="food_rating" placeholder="rating out of 10" value={postForm.food_rating} />
-          <input onChange={handleChange} text={postForm.created_at} name="created_at" value={Date.now()} type='hidden'/>
+          <input onChange={handleChange} type='number' text={postForm.food_rating} name="food_rating" placeholder="rating out of 10" value={postForm.food_rating} />
+          <input onChange={handleChange} type='hidden' text={postForm.created_at} name="created_at" value={Date.now()} />
           
-          <button onClick={createPost}>Post</button>
+          <span class="material-symbols-outlined" onClick={createPost}>add_circle</span>
       </form>
+      <div className='post-feed'>
           { userPost && userPost.map(onePost => <Feed
           key={onePost.id}
           id={onePost.id}
@@ -88,7 +89,8 @@ return(
           deletion ={deletePost}
           />
           )}
-
+        </div>
+        
     </div>
 
 )
