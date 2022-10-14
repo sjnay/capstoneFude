@@ -4,9 +4,10 @@ function Nav(){
 
     return(
         <nav className='hero is-primary'>
-<h1>fude</h1>
-<h1>fudfeed</h1>
-<h1>fudes</h1>
+<Link to="/"><h1>fude</h1></Link>
+<Link to="/feed"><h1>fudefeed</h1></Link>
+<Link to="/myfude"><h1>myfude</h1></Link>
+
         </nav>
 
     )

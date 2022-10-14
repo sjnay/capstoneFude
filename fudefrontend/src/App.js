@@ -1,15 +1,19 @@
-import logo from './logo.svg';
+
 import './App.css';
-import {Routes,Route} from 'react-router-dom'
+
 import Post from './components/Post'
 import Nav from './components/Nav'
+import Feed from './components/Feed';
+import Body from "./components/Body"
 
 function App() {
   return (
 
     <div className="App">
       <Nav/>
-      <Post/>
+      <Body/>
+      
+      
 
     
     </div>

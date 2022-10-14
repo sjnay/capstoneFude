@@ -1,49 +1,74 @@
-.App {
+.App{
+  background-color: blueviolet;
+}
+.Body {
+  background-color: green;
   text-align: center;
+  height:max-content;
+  width: max-content;
+  align-self: center;
+  border: 2px solid white;
+  height: 80vh;
+  width: 90vw;
+  justify-content: center;
+  align-content: center;
+  padding:10px;
+  
   
 }
 
-nav{
-  background-color: orange;
-  
-}
+
 .profile-feed-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  border: 2px solid white;
+  height: 70%
+ 
   
   
 }
 
 
-  .post-feed{
-  background-color: blue;
-  overflow: scroll;
-  border: 2px solid black;
-  grid-column: 2;
-  grid-row: 1 /span 2;
+  
   
 
-}
+
 
 form{
   display: flex;
   flex-direction: column;
   width:20vw;
-  height: 40vh;
   grid-column: 1;
   grid-row:2;
   align-content: center;
+  border: 2px solid white;
  
+}
+input{
+  padding: 5px;
+  margin: 10px;
+}
+
+textarea{
+  padding: 5px;
+  margin: 10px;
 }
 
 .create-post{
-  background-color: plum;
+  background-color: rgb(221, 160, 221);
+  padding:10px;
   
  
 }
 .post-container{
-  border: 2px solid white;
+  
+    background-color: blue;
+    overflow: scroll;
+    border: 2px solid black;
+    grid-column: 2;
+    grid-row: 1 /span 2;
+    
 
 }
 
@@ -52,6 +77,18 @@ form{
   cursor: pointer;
 
 }
+.material-symbols-outlined{
+  color:rgb(177, 126, 177)
+}
+
+
+img{
+  height: 200px;
+  width: 200px;
+
+}
+
+
 
 
 
