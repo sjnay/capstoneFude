@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import {Link} from 'react-router-dom'
+import {Link,useParams} from 'react-router-dom'
 import ShowPost from './ShowPost'
 import {Routes,Route} from 'react-router-dom'
 import axios from "axios"
@@ -30,35 +30,38 @@ function Feed(){
             })
         }
    
-    function deletePost(id){
-        axios.delete(`/posts/${id}`)
-        .then((response)=>{
-            console.log(response)
-            getPost()
-        });
-    }
+    // function deletePost(id){
+    //     axios.delete(`/posts/${id}`)
+    //     .then((response)=>{
+    //         console.log(response)
+    //         getPost()
+    //     });
+    // }
 
-    function showPost(id){
-        axios.get(`/posts/${id}`)
-        .then((response)=>{
-            getPost()
-        });
-    }
-    function handleClick(){
-        deletePost(userPost.id)}
+    // function showPost(id){
+    //     axios.get(`/posts/${id}`)
+    //     .then((response)=>{
+            
+    //        getPost()
+    //     });
+    // }
+    // function handleClick(){
+    //     deletePost(userPost.id)}
 
- const loaded = ()=>{
+ const loaded = ()=>{ 
    
-    const results = userPost.map((post)=>{
+    const results = userPost.map((post,id)=>{
 
    
         return(
             <div className='single-post'>
-                <p>{post.place_name}</p>
+               <Link  to={`/myfude/${post.id}`}> <p>{post.place_name}</p> </Link>
                 <img src={post.food_img}/>
                 <p>{post.food_name}</p>
                 {/* <span className="material-symbols-outlined" onClick={handleClick(post.id)}>delete</span> */}
-               
+                <Routes>
+                    <Route exact path ={`/myfude/${post.id}`} element={<ShowPost post={post.place_name}/>}/>
+                </Routes>
             </div>
         )
     })
@@ -78,6 +81,7 @@ const loading = ()=>{
 <div className='post-container'>
 
 {userPost? loaded():loading()}
+
 
 </div>
 

@@ -1,21 +1,23 @@
 
 import {Routes,Route,Link} from 'react-router-dom'
 
-
+import Profile from './Profile';
 import Post from './Post';
 import Feed from './Feed';
+import ShowPost from './ShowPost'
 
 function Body() {
   return (
 
     <div className="Body">
-        <nav>
-          <Link to='/feed/'>  <h1>new post</h1></Link>
-        </nav>
+       
        
     <Routes>
-       <Route exact path ='/' element={<><Feed/></>}/>
-       <Route exact path ='/feed' element={<><Post/></>}/>
+       <Route exact path ='/feed/' element={<><Feed/></>}/>
+       <Route exact path ='/myfude/' element={<><Profile/></>}/>
+       <Route exact path ='myfude/new' element={<Post/>}/>
+       <Route exact path ='myfude/:id' element={<><ShowPost/></>}/>
+       
     </Routes>
       
 

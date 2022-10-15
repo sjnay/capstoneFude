@@ -67,6 +67,7 @@ function handleChange(event){
 return(
 
     <div className='profile-feed-container'>
+        <Link to='/myfude'> back to profile</Link>
 
       <form className="create-post">
           <input onChange={handleChange} text={postForm.place_name} name="place_name" placeholder="where did you go?" value={postForm.place_name} />

@@ -68,6 +68,7 @@ textarea{
     border: 2px solid black;
     grid-column: 2;
     grid-row: 1 /span 2;
+    height: 60vh;
     
 
 }

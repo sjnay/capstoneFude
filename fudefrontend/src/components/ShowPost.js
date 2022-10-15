@@ -1,12 +1,85 @@
-// function ShowPost(props){
-//     function handleClick(){
-//         deletePost(userPost.id)}
-//     return(
-//         <div>
-//         <h1>show post</h1>
-//         <p>{props.place_name}</p>
-//         </div>
-//     )
-// }
+import {Link,useParams} from 'react-router-dom'
+import {useState, useEffect} from "react"
+import axios from "axios"
 
-// export default ShowPost
+function ShowPost(){
+    const {id} = useParams()
+    console.log(id)
+
+const [onePost, setShowPost]=useState(null)
+ useEffect(()=>{
+ showPost()},[])
+ 
+ function getPost(){
+    axios.get("/posts/")
+    .then((response)=>{
+        const data = response.data
+       
+       console.log(data)
+    }).catch((error)=>{
+        if (error.response){
+            console.log(error.response);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
+    })
+}
+
+    function deletePost(){
+        axios.delete(`/posts/${id}`)
+        .then((response)=>{
+            console.log(response)
+            getPost()
+        });
+    }
+
+    function showPost(){
+        axios.get(`/posts/${id}`)
+        .then((response)=>{
+            const data = response.data
+            console.log(data)
+            setShowPost(data)
+            // getPost()
+        });
+    }
+
+    console.log(onePost)
+   
+    function handleClick(){
+        deletePost()}
+    // function handleClick(){
+    //     deletePost(userPost.id)}
+
+    const loading = ()=>{
+        return(
+            <h1>loading...</h1>
+        )
+    }
+
+  const loaded=()=>{
+    return(
+        <div>
+            <Link to='/myfude/'>  <h1>back</h1></Link>
+        <h1>{onePost[0].food_name}</h1>
+        <p>{onePost[0].place_name}</p>
+        <img src={onePost[0].food_img}></img>
+        <p>{onePost[0].food_review}</p>
+
+        
+       
+       
+        </div>)}
+
+return(
+
+<div>
+
+    {onePost?loaded():loading}
+
+</div>
+
+    )
+
+}
+
+export default ShowPost
