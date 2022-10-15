@@ -16,7 +16,9 @@
   
   
 }
-
+a{
+  color: white;
+}
 
 .profile-feed-container{
   display: grid;

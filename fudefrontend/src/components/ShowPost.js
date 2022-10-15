@@ -1,8 +1,9 @@
-import {Link,useParams} from 'react-router-dom'
+import {Link,useParams,useNavigate} from 'react-router-dom'
 import {useState, useEffect} from "react"
 import axios from "axios"
 
 function ShowPost(){
+   const navigate = useNavigate()
     const {id} = useParams()
     console.log(id)
 
@@ -25,11 +26,12 @@ const [onePost, setShowPost]=useState(null)
     })
 }
 
-    function deletePost(){
+    function deletePost(id){
+         
         axios.delete(`/posts/${id}`)
         .then((response)=>{
             console.log(response)
-            getPost()
+            //getPost()
         });
     }
 
@@ -46,9 +48,11 @@ const [onePost, setShowPost]=useState(null)
     console.log(onePost)
    
     function handleClick(){
-        deletePost()}
-    // function handleClick(){
-    //     deletePost(userPost.id)}
+        deletePost(id)
+        navigate('/myfude/')
+        getPost()
+        ;}
+    
 
     const loading = ()=>{
         return(
@@ -64,6 +68,7 @@ const [onePost, setShowPost]=useState(null)
         <p>{onePost[0].place_name}</p>
         <img src={onePost[0].food_img}></img>
         <p>{onePost[0].food_review}</p>
+        <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
 
         
        

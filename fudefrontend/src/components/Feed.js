@@ -30,13 +30,13 @@ function Feed(){
             })
         }
    
-    // function deletePost(id){
-    //     axios.delete(`/posts/${id}`)
-    //     .then((response)=>{
-    //         console.log(response)
-    //         getPost()
-    //     });
-    // }
+    function deletePost(id){
+        axios.delete(`/posts/${id}`)
+        .then((response)=>{
+            console.log(response)
+            getPost()
+        });
+    }
 
     // function showPost(id){
     //     axios.get(`/posts/${id}`)
@@ -60,7 +60,7 @@ function Feed(){
                 <p>{post.food_name}</p>
                 {/* <span className="material-symbols-outlined" onClick={handleClick(post.id)}>delete</span> */}
                 <Routes>
-                    <Route exact path ={`/myfude/${post.id}`} element={<ShowPost post={post.place_name}/>}/>
+                    <Route exact path ={`/myfude/${post.id}`} element={<ShowPost/>}/>
                 </Routes>
             </div>
         )
