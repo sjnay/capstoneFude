@@ -4,6 +4,8 @@ import Feed from './Feed';
 
 function Profile(){
 
+    
+
 return(
     <div>
 <nav>

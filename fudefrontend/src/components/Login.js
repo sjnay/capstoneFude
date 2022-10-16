@@ -1,15 +1,15 @@
 function Login(){
 
-    return(
-        <div>
-        <h1 class="title">Log In</h1>
-<form method="post" action="{% url 'login' %}">
+ const currentUser =(e)=>{
+    console.log(e.target.value)
+
+
+   }
+   return(
+    currentUser
    
-    <input type="submit" class="btn" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-</form>
-</div>
-
-
-    )
+   )
+  
 }
+
+export default Login
