@@ -3,6 +3,7 @@ import {Link,useParams} from 'react-router-dom'
 import ShowPost from './ShowPost'
 import {Routes,Route} from 'react-router-dom'
 import axios from "axios"
+import MediaCard from "./PostCard"
 
 
 
@@ -54,11 +55,16 @@ function Feed(){
 
    
         return(
-            <div className='single-post'>
+            <div>
                <Link  to={`/myfude/${post.id}`}> <p>{post.place_name}</p> </Link>
-                <img src={post.food_img}/>
-                <p>{post.food_name}</p>
-                {/* <span className="material-symbols-outlined" onClick={handleClick(post.id)}>delete</span> */}
+                <MediaCard
+                image={post.food_img}
+                food_item={post.food_name}
+                food_place={post.place_name}
+                review={post.food_review}
+                rating={post.food_rating}
+                />
+               
                 <Routes>
                     <Route exact path ={`/myfude/${post.id}`} element={<ShowPost/>}/>
                 </Routes>

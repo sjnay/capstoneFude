@@ -1,5 +1,6 @@
 .App{
   background-color: blueviolet;
+  font-family: 'News Cycle';
 }
 .Body {
   background-color: green;
@@ -30,6 +31,21 @@ a{
   
   
 }
+.nav-bar{
+  background-color: aqua;
+  
+  
+  
+}
+.nav-items{
+  border: 2px solid black;
+  display: inline-block;
+}
+
+.logout{
+  border: 2px solid black;
+}
+
 
 
   

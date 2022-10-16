@@ -26,6 +26,7 @@ useEffect(()=>{
 
 
     function getPost(){
+       
         axios.get("/posts/")
         .then((response)=>{
             const data = response.data
