@@ -12,7 +12,8 @@ const defaultForm = {
     food_review: "",
     food_rating: "",
     created_at: Date.now(),
-    user:""
+    
+    
 
 }
 
@@ -83,7 +84,7 @@ return(
           <textarea onChange={handleChange} text={postForm.food_review} name="food_review" placeholder="describe it" value={postForm.food_review} />
           <input onChange={handleChange} type='number' text={postForm.food_rating} name="food_rating" placeholder="rating out of 10" value={postForm.food_rating} />
           <input onChange={handleChange} type='hidden' text={postForm.created_at} name="created_at" value={Date.now()} />
-          <input onChange={handleChange}  type='hidden'text={postForm.user} name="created_at" value={props.user} />
+          
           <input type='submit' value='post' className='btn' onClick={createPost}/>
       </form>
 

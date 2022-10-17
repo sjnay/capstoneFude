@@ -11,7 +11,7 @@ return(
 <nav className='profile-nav'>
     
 <Link to='/myfude/new'>  <p>new post</p></Link>
-<p>hi {props.user}</p>
+<p className='user'>hi {props.user}</p>
 <a href='/user/logout/'><p>log out</p></a>
 </nav>
 <div>

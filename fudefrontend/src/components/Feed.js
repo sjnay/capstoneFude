@@ -57,6 +57,7 @@ function Feed(){
                 food_place={post.place_name}
                 review={post.food_review}
                 rating={post.food_rating}
+                user={post.user}
                 />
               </Link> 
                 <Routes>

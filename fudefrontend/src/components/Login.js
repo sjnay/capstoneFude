@@ -1,12 +1,13 @@
 function Login(){
 
- const currentUser =(e)=>{
-    console.log(e.target.value)
+ 
 
 
-   }
+   
    return(
-    currentUser
+    <div className='login'>
+    <a href='/user/login/'>log in here</a>
+    </div>
    
    )
   

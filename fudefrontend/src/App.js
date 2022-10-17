@@ -8,7 +8,7 @@ import Nav from './components/Nav'
 import Feed from './components/Feed';
 import Body from "./components/Body"
 import Login from './components/Login';
-import MenuAppBar from './components/NavMui';
+
 import NewUser from './components/NewUser';
 
 function App() {

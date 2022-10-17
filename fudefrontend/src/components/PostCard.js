@@ -15,17 +15,18 @@ export default function MediaCard(props) {
         image={props.image}
         alt="green iguana"
       />
-      <CardContent>
+      {/* <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {props.food_item}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {props.food_place}
+          
         </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">see more</Button>
-        <Button size="small">edit</Button>
+      </CardContent> */}
+      <CardActions sx={{backgroundColor:'#c9ac82'}}>
+        <Button sx={{color:'#333239'}}className='card-btn'size="small">more</Button>
+       
       </CardActions>
     </Card>
   );
