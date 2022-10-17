@@ -12,10 +12,11 @@ const defaultForm = {
     food_review: "",
     food_rating: "",
     created_at: Date.now(),
+    user:""
 
 }
 
-function Posts(){
+function Posts(props){
     
     const [postForm, setPostForm] = useState(defaultForm)
 
@@ -66,10 +67,15 @@ function handleChange(event){
 
 
 return(
+    <div>
+    <nav>
+    <Link to='/myfude'> back to profile</Link>
+    </nav>
 
+    
     <div className='profile-feed-container'>
-        <Link to='/myfude'> back to profile</Link>
-
+       
+    <h1>new post</h1>
       <form className="create-post">
           <input onChange={handleChange} text={postForm.place_name} name="place_name" placeholder="where did you go?" value={postForm.place_name} />
           <input onChange={handleChange} text={postForm.food_name} name="food_name" placeholder="what did you eat?" value={postForm.food_name} />
@@ -77,10 +83,11 @@ return(
           <textarea onChange={handleChange} text={postForm.food_review} name="food_review" placeholder="describe it" value={postForm.food_review} />
           <input onChange={handleChange} type='number' text={postForm.food_rating} name="food_rating" placeholder="rating out of 10" value={postForm.food_rating} />
           <input onChange={handleChange} type='hidden' text={postForm.created_at} name="created_at" value={Date.now()} />
-          <span className="material-symbols-outlined" onClick={createPost}>add_circle</span>
+          <input onChange={handleChange}  type='hidden'text={postForm.user} name="created_at" value={props.user} />
+          <input type='submit' value='post' className='btn' onClick={createPost}/>
       </form>
 
-     
+      </div>
     </div>
 
 )

@@ -2,17 +2,20 @@ import {Routes,Route,Link} from 'react-router-dom'
 import Post from './Post';
 import Feed from './Feed';
 
-function Profile(){
+function Profile(props){
 
-    
+
 
 return(
     <div>
-<nav>
-<Link to='/myfude/new'>  <h1>new post</h1></Link>
+<nav className='profile-nav'>
+    
+<Link to='/myfude/new'>  <p>new post</p></Link>
+<p>hi {props.user}</p>
+<a href='/user/logout/'><p>log out</p></a>
 </nav>
 <div>
-    <h1>my posts</h1>
+    
     <Feed/>
 </div>
 

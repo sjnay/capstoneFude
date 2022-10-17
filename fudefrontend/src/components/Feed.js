@@ -4,6 +4,7 @@ import ShowPost from './ShowPost'
 import {Routes,Route} from 'react-router-dom'
 import axios from "axios"
 import MediaCard from "./PostCard"
+import Nav from "./Nav"
 
 
 
@@ -39,24 +40,17 @@ function Feed(){
         });
     }
 
-    // function showPost(id){
-    //     axios.get(`/posts/${id}`)
-    //     .then((response)=>{
-            
-    //        getPost()
-    //     });
-    // }
-    // function handleClick(){
-    //     deletePost(userPost.id)}
-
+   
  const loaded = ()=>{ 
    
     const results = userPost.map((post,id)=>{
 
    
         return(
-            <div>
-               <Link  to={`/myfude/${post.id}`}> <p>{post.place_name}</p> </Link>
+           <div className="feed-container">
+           
+            <div className='feed'>
+               <Link  to={`/myfude/${post.id}`}> 
                 <MediaCard
                 image={post.food_img}
                 food_item={post.food_name}
@@ -64,10 +58,11 @@ function Feed(){
                 review={post.food_review}
                 rating={post.food_rating}
                 />
-               
+              </Link> 
                 <Routes>
                     <Route exact path ={`/myfude/${post.id}`} element={<ShowPost/>}/>
                 </Routes>
+            </div>
             </div>
         )
     })
@@ -85,6 +80,7 @@ const loading = ()=>{
     return(
 
 <div className='post-container'>
+
 
 {userPost? loaded():loading()}
 
