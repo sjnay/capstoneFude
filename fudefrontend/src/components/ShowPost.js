@@ -64,7 +64,7 @@ const [onePost, setShowPost]=useState(null)
     return(
         <div>
             <Link to='/myfude/'>  <h1>back</h1></Link>
-            <div>
+            <div className='show'>
         <h1>{onePost[0].food_name}</h1>
         <p>{onePost[0].place_name}</p>
         <img src={onePost[0].food_img}></img>

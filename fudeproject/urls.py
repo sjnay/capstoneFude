@@ -13,13 +13,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from re import template
 from django.contrib import admin
-from django.urls import path
-from fudeapp.views import front, post, post_detail
+from django.contrib.auth import views as auth_views
+from django.urls import path, include
+from fudeapp.views import example_view, front, post, post_detail,feed,example_view,new,add
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",front,name="front"),
+    path('user/', include('django.contrib.auth.urls')),
+    path('user/login/',auth_views.LoginView.as_view(next_page='/fude')),
+    path('user/logout/',auth_views.LogoutView.as_view(next_page='user/login/'),),
+    path('',front),
+   
+    path("fude/",example_view,name='example_view'),
+    path('feed/',feed),
+    path('myfude/',front),
+    path('myfude/new/',post),
+    path('myfude/<int:pk>',post_detail),
+    path('newuser/',add),
+    path('user/login/add/',new,name='new'),
     path("posts/", post, name='post'),
     path("posts/<int:pk>/",post_detail,name='detail')
 ]
