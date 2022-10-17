@@ -3,10 +3,13 @@ import {Link} from 'react-router-dom'
 function Nav(){
 
     return(
-        <nav className='hero is-primary'>
-<h1>fude</h1>
-<h1>fudfeed</h1>
-<h1>fudes</h1>
+        <nav className='nav-bar'>
+            <div className='nav-items'>
+
+<Link to="/feed"><h1>fudefeed</h1></Link>
+<Link to="/myfude"><h1>myfude</h1></Link>
+</div>
+
         </nav>
 
     )

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"type="text/css" href="login.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
+        </style>
+    <title>Fude Login</title>
+    <style>
+        body {background-color: #C1B2AB;
+            text-transform: lowercase;
+            color: #4E4D5C;
+        }
+        div {
+            text-align: center;
+            box-shadow: 0px 1px 8px #848885;
+            height: 450px;
+            margin: 6rem auto 8.1rem auto;
+            width: 329px;
+            border-radius: 21px;
+        }
+        h1{
+            padding:18px;
+            font-size: 45px;
+            text-align: center;
+        }
+        input{border:none;
+            border-bottom: 3px solid rgba(71, 68, 68, 0.666);
+            outline: none;
+            border-radius: 10px;
+            width: 200px;
+            padding: 10px;
+            text-align: center;
+            
+        }
+        a{
+            text-decoration: none;
+            color: #4E4D5C;
+
+           
+        }
+        .btn{
+            border-radius: 21px;
+           
+            border: none;
+            height: 42.3px;
+            margin: 0 auto;
+            margin-top: 30px;
+            transition: 0.25s;
+            width: 140px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            padding: 0;
+           
+        }
+        .btn:hover{
+            box-shadow: 1px 1px 18px #303430;
+        }
+        label{display: block;}
+        
+    </style>
+</head>
+<body style="font-family:News Cycle">
+    
+
+
+
+{% block content %}
+<h1>füde</h1>
+<div>
+<h1 class="title">log in</h1>
+<form method="post" action="/user/login/" autocomplete="off">
+    {% csrf_token %} {{ form.as_p }} 
+    <input type="submit" class="btn" value="login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
+<a href="/user/login/add">create account</a>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

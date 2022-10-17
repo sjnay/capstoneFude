@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+from audioop import reverse
 from pathlib import Path
 import os
 from dotenv import load_dotenv, find_dotenv
@@ -42,9 +43,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fudeapp',
     'rest_framework',
+    'rest_auth',
+    'rest_auth.registration',
+    'allauth',
+    'allauth.account',
+    'corsheaders',
+    'rest_framework.authtoken'
+    
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,7 +68,7 @@ ROOT_URLCONF = 'fudeproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'fudefrontend','build')],
+        'DIRS': [BASE_DIR/'fudeapp',os.path.join(BASE_DIR,'fudefrontend','build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,7 +138,7 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-    # 'rest_framework.authentication.SessionAuthentication',
+    #'rest_framework.authentication.SessionAuthentication',
     'rest_framework.authentication.BasicAuthentication',
 ]
 }
@@ -140,3 +149,10 @@ REST_FRAMEWORK = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_WHITELIST = 'http://localhost:3000',
+
+LOGIN_URL='/user/login'
+LOGIN_REDIRECT_URL = "/myfude/"
+LOGOUT_REDIRECT_URL='/user/login/'
+
+
+
